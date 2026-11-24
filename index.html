@@ -38,13 +38,15 @@
       <p class="headline fade-item">Security Researcher &amp; Builder</p>
       <p class="blurb fade-item">I build software, and I look for the places it breaks.
       Independent security research from my own lab in <strong>Kota, India</strong>.</p>
+      <p class="blurb fade-item">The goal: a name vendors and researchers know — earned
+      through published credits, not claimed.</p>
 
       <nav class="spy-nav fade-item" aria-label="On this page">
         <ul>
           <li><a href="#about"><span class="nav-line"></span>About</a></li>
           <li><a href="#experience"><span class="nav-line"></span>Experience</a></li>
           <li><a href="#projects"><span class="nav-line"></span>Projects</a></li>
-          <li><a href="#security"><span class="nav-line"></span>Security</a></li>
+          <li><a href="#security"><span class="nav-line"></span>Approach</a></li>
           <li><a href="#contact"><span class="nav-line"></span>Contact</a></li>
         </ul>
       </nav>
@@ -77,21 +79,23 @@
 
     <section id="about" aria-label="About" data-reveal>
       <h2 class="section-heading">About</h2>
-      <p>I pursue cybersecurity from <strong>my own research lab (RL)</strong>, not a classroom.
-      Leads are mapped from published source, verified locally on my own systems and accounts,
-      and logged — including the clean ones. Most leads turn out clean; working through them
-      anyway is the discipline.</p>
+      <p><strong>Vision:</strong> become a noticeable name in security — a name vendors and
+      researchers know — earned through published credits, not claimed. I pursue that from
+      <strong>my own research lab (RL)</strong>, not a classroom: credits first, noise later.</p>
       <p>My main corner is <strong>Android &amp; device security</strong>. I build in the
       Android / scrcpy ecosystem, so I research it too: device tooling, pairing and session
-      models, and the trust boundaries between a phone, a host PC, and an AI agent. I also
-      review the open-source code I depend on — anything real goes privately to the maintainer
-      first, with a proposed fix, never a public post before the vendor publishes.</p>
-      <p>Alongside research, I am a builder. I have been building on GitHub
-      <strong>since 2015 — around 114 repositories</strong> of AI tools, 3D editors, and
-      voice-first systems under <strong>Vibin</strong>. And I run real systems: I am the
-      third-generation owner-operator of <strong>Jodhpur Namkeen</strong> in Kota, a family
-      business running since 1971. Operating a live business every day is a different kind of
-      security education — you learn what downtime, fraud, and a broken integration actually cost.</p>
+      models, and the trust boundaries between a phone, a host PC, and an AI agent. Leads are
+      mapped from published source and verified locally, in my own lab and never outside a
+      program's published scope — and logged, including the clean ones. Most leads turn out
+      clean; working through them anyway is the discipline. Anything real goes privately to
+      the maintainer first, with a proposed fix, never a public post before the vendor publishes.</p>
+      <p>Alongside research, I am a builder. On GitHub <strong>since 2015 · 60+ public
+      repositories</strong> of AI tools, 3D editors, and voice-first systems under
+      <strong>Vibin</strong>. And I run real systems: I am the third-generation owner-operator
+      of <strong>Jodhpur Namkeen</strong> in Kota, a family business running since 1971.
+      Operating a live business every day is a different kind of security education — you
+      learn what downtime, fraud, and a broken integration actually cost, and why systems
+      have to earn trust.</p>
       <p>Credits, when they come, are listed on my
       <a class="inline-link" href="security.html">security page</a> with a link to the vendor's
       own page — evidence, not claims.</p>
@@ -122,7 +126,7 @@
           <div>
             <h3>Founder / Builder · <span class="org">Vibin</span></h3>
             <p>Building and shipping software since 2015: AI tools, 3D editors, and voice-first
-            systems — around 114 repositories on GitHub. Shipping full systems and operating
+            systems — 60+ public repositories on GitHub. Shipping full systems and operating
             them is exactly where my security instincts come from.</p>
             <ul class="tags">
               <li>TypeScript</li><li>Python</li><li>AI tools</li>
@@ -153,7 +157,7 @@
         <li class="entry project" data-reveal>
           <div class="thumb" aria-hidden="true">AB</div>
           <div>
-            <h3><a href="https://github.com/vaibhavjnf">Android Bridge <span class="ext">↗</span></a></h3>
+            <h3>Android Bridge</h3>
             <p>A consent-first Android bridge, built in public. The owner hosts a dashboard on
             their own PC; the phone's companion app binds only to that PC's Tailscale identity
             (pinned at pairing, by QR). An AI agent can request the screen (via scrcpy) or SMS
@@ -167,30 +171,13 @@
         </li>
 
         <li class="entry project" data-reveal>
-          <div class="thumb" aria-hidden="true">WM</div>
+          <div class="thumb" aria-hidden="true">TU</div>
           <div>
-            <h3><a href="https://github.com/vaibhavjnf/worldmesh">EyeTile / WorldMesh <span class="ext">↗</span></a></h3>
-            <p>The data layer underneath AR. Wearable LiDAR devices (EyeTile) scan the physical
-            world and stream point clouds into WorldMesh — a distributed spatial database any
-            AI model can query via MCP.</p>
-            <p class="sub-links">
-              <a href="https://github.com/vaibhavjnf/worldmesh">worldmesh</a>
-              <a href="https://github.com/vaibhavjnf/lensagent">lensagent</a>
-              <a href="https://github.com/vaibhavjnf/lensui">lensui</a>
-            </p>
+            <h3><a href="https://github.com/vaibhavjnf/telegram-india-unblock">telegram-india-unblock <span class="ext">↗</span></a></h3>
+            <p>Tooling for getting Telegram working where access is restricted in India.
+            My most-starred repository (12★) — people actually use what I ship.</p>
             <ul class="tags">
-              <li>MCP</li><li>SQLite R-tree</li><li>Three.js</li><li>Gemini Live</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="entry project" data-reveal>
-          <div class="thumb" aria-hidden="true">ED</div>
-          <div>
-            <h3><a href="https://github.com/vaibhavjnf/editor">editor <span class="ext">↗</span></a></h3>
-            <p>3D architectural building editor, built with React Three Fiber and Next.js.</p>
-            <ul class="tags">
-              <li>React Three Fiber</li><li>Next.js</li><li>TypeScript</li>
+              <li>Python</li><li>Telegram</li>
             </ul>
           </div>
         </li>
@@ -206,18 +193,55 @@
           </div>
         </li>
 
+        <li class="entry project" data-reveal>
+          <div class="thumb" aria-hidden="true">CW</div>
+          <div>
+            <h3><a href="https://github.com/vaibhavjnf/claw-vnc-windows">claw-vnc-windows <span class="ext">↗</span></a></h3>
+            <p>The Windows edition of claw-vnc — browser-based remote desktop with mic,
+            camera, and audio relay.</p>
+            <ul class="tags">
+              <li>Remote desktop</li><li>Windows</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="entry project" data-reveal>
+          <div class="thumb" aria-hidden="true">AY</div>
+          <div>
+            <h3><a href="https://github.com/vaibhavjnf/abyss">abyss <span class="ext">↗</span></a></h3>
+            <p>A terminal agent harness written in Rust — a Claude-Code-style CLI agent for
+            Linux, macOS, and Windows that works with any model. My current Rust build.</p>
+            <ul class="tags">
+              <li>Rust</li><li>CLI agent</li><li>Cross-platform</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="entry project" data-reveal>
+          <div class="thumb" aria-hidden="true">WM</div>
+          <div>
+            <h3>EyeTile / WorldMesh</h3>
+            <p>Earlier builder work: the data layer underneath AR. Wearable LiDAR devices
+            (EyeTile) scan the physical world and stream point clouds into WorldMesh — a
+            distributed spatial database any AI model can query via MCP.</p>
+            <ul class="tags">
+              <li>MCP</li><li>SQLite R-tree</li><li>Three.js</li><li>Gemini Live</li>
+            </ul>
+          </div>
+        </li>
+
       </ol>
     </section>
 
-    <section id="security" aria-label="Security research" data-reveal>
-      <h2 class="section-heading">Security</h2>
-      <p>The responsible-disclosure discipline, borrowed from researchers who have earned
-      vendor credits over a decade:</p>
+    <section id="security" aria-label="Approach" data-reveal>
+      <h2 class="section-heading">Approach</h2>
+      <p>How I work — the responsible-disclosure discipline, borrowed from researchers who
+      have earned vendor credits over a decade:</p>
       <ol class="method">
         <li><strong>Source-level review of published code</strong>, with AI as a co-pilot for mapping attack surface.</li>
-        <li><strong>Coordinated disclosure every time:</strong> the vendor hears first and publishes first.</li>
-        <li><strong>Most leads turn out clean.</strong> Working through them anyway is the discipline.</li>
-        <li><strong>Nothing that isn't reported and fixed gets talked about in public.</strong></li>
+        <li><strong>Verify everything locally</strong> — in my own lab, never on systems outside a program's published scope.</li>
+        <li><strong>Coordinated disclosure every time:</strong> the vendor hears first and publishes first — and the fix patch ships with the report.</li>
+        <li><strong>Most leads turn out clean.</strong> Working through them anyway is the discipline — the clean ones get logged too.</li>
       </ol>
       <p style="margin-top:24px">Full method, research focus, and the credits ledger —
       updated only when a vendor publishes — live on the
