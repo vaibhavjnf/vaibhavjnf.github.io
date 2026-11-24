@@ -1,0 +1,211 @@
+/* Vaibhav Sharma — vaibhavjnf.github.io
+   Structure reverse-engineered from the open-source portfolio tradition
+   (fixed identity column + scrolling résumé). Original code. No build step. */
+
+:root{
+  --bg:#0a192f;
+  --surface:#112240;
+  --line:#233554;
+  --text:#e6f1ff;
+  --body:#a8b2d1;
+  --muted:#8892b0;
+  --accent:#5fd3bc;
+  --accent-dim:rgba(95,211,188,.10);
+  --glow:rgba(45,90,160,.18);
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--muted);
+  font-family:var(--sans);font-size:16px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent-dim);color:var(--text)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* ---------- spotlight (single orchestrated effect) ---------- */
+#spotlight{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),var(--glow),transparent 65%);
+}
+
+/* ---------- shell ---------- */
+.layout{
+  position:relative;z-index:1;
+  max-width:1600px;margin:0 auto;padding:0 96px;
+  display:flex;justify-content:space-between;gap:4rem;
+}
+
+/* ---------- left column ---------- */
+.identity{
+  position:sticky;top:0;height:100vh;max-height:100vh;width:48%;
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:96px 0;
+}
+.identity h1{font-size:48px;line-height:1.1;letter-spacing:-1px;color:var(--text);font-weight:700}
+.identity h1 a:hover{color:var(--text)}
+.identity .headline{font-size:20px;font-weight:500;color:var(--text);margin-top:12px}
+.identity .blurb{margin-top:16px;max-width:340px;color:var(--muted)}
+.identity .blurb strong{color:var(--body);font-weight:500}
+
+/* scroll-spy nav */
+.spy-nav{margin-top:48px}
+.spy-nav ul{list-style:none}
+.spy-nav a{
+  display:flex;align-items:center;gap:16px;padding:10px 0;
+  font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+}
+.spy-nav .nav-line{display:block;width:32px;height:1px;background:var(--muted);transition:width .25s ease,background .25s ease}
+.spy-nav a:hover,.spy-nav a.active{color:var(--text)}
+.spy-nav a:hover .nav-line,.spy-nav a.active .nav-line{width:64px;background:var(--accent)}
+.spy-nav .nav-num{font-family:var(--mono);font-size:11px;letter-spacing:0;color:var(--accent);display:none}
+
+/* socials pinned to bottom of left column */
+.socials{list-style:none;display:flex;gap:22px;align-items:center}
+.socials a{color:var(--muted);display:inline-flex}
+.socials a:hover{color:var(--accent)}
+.socials svg{width:22px;height:22px;fill:currentColor}
+.socials .blog-link{font-family:var(--mono);font-size:12px}
+
+/* ---------- right column ---------- */
+.content{width:52%;padding:96px 0}
+section{margin-bottom:144px;scroll-margin-top:96px}
+section:last-child{margin-bottom:0}
+
+/* mobile-only sticky section heading (hidden on desktop) */
+.section-heading{
+  display:none;
+  font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text);
+}
+
+.content p{margin-bottom:16px}
+.content p strong,.content li strong{color:var(--body);font-weight:500}
+.inline-link{color:var(--text);font-weight:500;box-shadow:inset 0 -1px 0 var(--accent);transition:color .2s}
+.inline-link:hover{color:var(--accent)}
+
+/* ---------- résumé rows (experience / projects / credits) ---------- */
+.rows{list-style:none}
+.entry{
+  display:grid;grid-template-columns:130px 1fr;gap:1.25rem;
+  padding:20px;border-radius:8px;
+  transition:background .25s ease,box-shadow .25s ease;
+}
+.entry + .entry{margin-top:4px}
+.entry .when{
+  font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--muted);
+  padding-top:4px;white-space:nowrap;
+}
+.entry h3{font-size:16px;font-weight:500;color:var(--text);line-height:1.45}
+.entry h3 a:hover{color:var(--accent)}
+.entry h3 .ext{color:var(--accent);font-size:13px}
+.entry .org{color:var(--body)}
+.entry p{font-size:15px;margin:8px 0 0}
+.entry p:last-of-type{margin-bottom:0}
+.sub-links{font-size:14px;margin-top:10px}
+.sub-links a{color:var(--body);font-weight:500;margin-right:18px}
+.sub-links a:hover{color:var(--accent)}
+
+.tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tags li{
+  font-size:12px;font-weight:500;line-height:1;
+  color:var(--accent);background:var(--accent-dim);
+  padding:6px 12px;border-radius:999px;
+}
+
+/* project rows get a CSS-only thumbnail tile (no external images) */
+.entry.project{grid-template-columns:150px 1fr}
+.thumb{
+  height:96px;border:1px solid var(--line);border-radius:6px;background:var(--surface);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:20px;letter-spacing:.08em;color:var(--body);
+  transition:border-color .25s ease,color .25s ease;
+}
+
+/* desktop: siblings dim while one row is hovered (résumé-reading effect) */
+@media (hover:hover) and (min-width:1081px){
+  .rows:hover .entry{opacity:.55}
+  .rows:hover .entry:hover{opacity:1;background:rgba(148,163,184,.06);box-shadow:inset 0 1px 0 rgba(148,163,184,.08)}
+  .rows:hover .entry:hover h3,.entry:hover h3{color:var(--accent)}
+  .entry:hover .thumb{border-color:var(--accent);color:var(--accent)}
+}
+
+/* ---------- security / method ---------- */
+.method{list-style:none;counter-reset:rule}
+.method li{
+  counter-increment:rule;position:relative;
+  padding:14px 0 14px 52px;border-bottom:1px solid var(--line);
+}
+.method li:last-child{border-bottom:none}
+.method li::before{
+  content:counter(rule,decimal-leading-zero);
+  position:absolute;left:0;top:16px;
+  font-family:var(--mono);font-size:13px;color:var(--accent);
+}
+.method li strong{color:var(--text);font-weight:500}
+
+.status-note{
+  border:1px solid var(--line);border-radius:8px;background:var(--surface);
+  padding:22px;font-size:15px;
+}
+.status-note strong{color:var(--text)}
+
+/* publications-style credit entries (Academic Pages model) */
+.pub{display:grid;grid-template-columns:130px 1fr;gap:1.25rem;padding:20px;border-radius:8px}
+.pub .pub-year{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:4px}
+.pub h3{font-size:16px;font-weight:500;color:var(--text)}
+.pub .venue{color:var(--accent);font-size:14px;font-weight:500;margin-top:2px}
+.pub p{font-size:15px;margin-top:6px}
+.pub .links{font-size:14px;margin-top:8px}
+.pub .links a{color:var(--body);font-weight:500;margin-right:18px}
+.pub .links a:hover{color:var(--accent)}
+.pub.empty h3{color:var(--body)}
+
+/* ---------- contact / footer ---------- */
+.contact-big{font-size:32px;font-weight:700;color:var(--text);letter-spacing:-.5px;margin-bottom:16px}
+.contact-links{list-style:none;margin-top:24px}
+.contact-links li{padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.contact-links li:last-child{border-bottom:none}
+.contact-links .k{font-family:var(--mono);font-size:12px;color:var(--accent);display:inline-block;width:110px}
+footer.site{margin-top:120px;font-size:14px;color:var(--muted)}
+footer.site a{color:var(--body)}
+footer.site a:hover{color:var(--accent)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1240px){
+  .layout{padding:0 48px}
+}
+@media (max-width:1080px){
+  .layout{flex-direction:column;padding:0 48px;gap:0}
+  .identity{position:static;height:auto;max-height:none;width:100%;padding:80px 0 0}
+  .identity .blurb{max-width:560px}
+  .spy-nav{display:none}
+  .socials{margin-top:32px}
+  .content{width:100%;padding:64px 0 80px}
+  section{margin-bottom:96px;scroll-margin-top:24px}
+  .section-heading{
+    display:block;position:sticky;top:0;z-index:5;
+    margin:0 -48px 24px;padding:16px 48px;
+    background:rgba(10,25,47,.78);backdrop-filter:blur(10px);
+  }
+}
+@media (max-width:640px){
+  .layout{padding:0 24px}
+  .identity{padding-top:56px}
+  .identity h1{font-size:38px}
+  .identity .headline{font-size:18px}
+  .section-heading{margin:0 -24px 20px;padding:14px 24px}
+  .entry,.entry.project,.pub{grid-template-columns:1fr;gap:.5rem}
+  .entry .when,.pub .pub-year{padding-top:0}
+  .thumb{height:72px;max-width:200px}
+  .contact-big{font-size:26px}
+  .contact-links .k{display:block;width:auto;margin-bottom:2px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important}
+  #spotlight{display:none}
+}
